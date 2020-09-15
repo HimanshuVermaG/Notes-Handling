@@ -31,6 +31,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
                 <a class="nav-item nav-link" href="register.php">Register</a>
                 <a class="nav-item nav-link" href="#">Contact Us</a>
                 <a class="nav-item nav-link" href="#"><?php echo "Welcome " . $_SESSION['username'] ?></a>
+                <a class="nav-item nav-link" href="logout.php">Logout</a>
             </div>
         </div>
     </nav>
