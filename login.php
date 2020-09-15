@@ -81,8 +81,9 @@ if (empty($err)){
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="register.php">Register</a>
+                <a class="nav-item nav-link" href="register.php">About</a>
                 <a class="nav-item nav-link" href="#">Contact Us</a>
+                <a class="nav-item nav-link" href="register.php">Register</a>
             </div>
         </div>
     </nav>

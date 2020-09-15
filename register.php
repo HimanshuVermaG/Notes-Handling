@@ -101,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">About</a>
                 <a class="nav-item nav-link" href="#">Contact Us</a>
+                <a class="nav-item nav-link" href="login.php">Login</a>
             </div>
         </div>
     </nav>
@@ -128,27 +129,42 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
             </div>
             <div class="form-group">
-            <label for="inputState">College Name</label>
-                    <select id="inputState" class="form-control">
+            <label for="inputCollege">College Name</label>
+                    <select id="inputCollege" class="form-control">
                         <option selected>College...</option>
-                        <option>...</option>
+                        <option>G.C.E.T</option>
+                        <option>K.I.E.T</option>
+                        <option>J.S.S</option>
                     </select>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
+                <label for="inputState">Course</label>
                     <select id="inputState" class="form-control">
                         <option selected>Choose...</option>
-                        <option>...</option>
+                        <option>B.tech</option>
+                        <option>B.S.C</option>
+                        <option>M.Tech</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Branch</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>CSE</option>
+                        <option>IT</option>
+                        <option>EEE</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                <label for="inputState">Year</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>1st Year</option>
+                        <option>2st Year</option>
+                        <option>3st Year</option>
+                        <option>4st Year</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
