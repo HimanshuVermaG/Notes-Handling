@@ -28,7 +28,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="register.php">Register</a>
+                <a class="nav-item nav-link" href="register.php">About</a>
                 <a class="nav-item nav-link" href="#">Contact Us</a>
                 <a class="nav-item nav-link" href="#"><?php echo "Welcome " . $_SESSION['username'] ?></a>
                 <a class="nav-item nav-link" href="logout.php">Logout</a>
@@ -37,7 +37,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
     </nav>
 
     <div class="container mt-4">
-        <h3><?php echo "Welcome Back Mr." . $_SESSION['username'] ?></h3>
+        <h3>LIBRARY</h3>
         <hr>
     </div>
 

@@ -80,11 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>NOTES-Handling</title>
@@ -161,9 +159,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <select id="inputState" class="form-control">
                         <option selected>Choose...</option>
                         <option>1st Year</option>
-                        <option>2st Year</option>
-                        <option>3st Year</option>
-                        <option>4st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
                     </select>
                 </div>
             </div>
