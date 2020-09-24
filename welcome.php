@@ -15,8 +15,10 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/nh_project/welcome.css">
 
     <title>NOTES-Handling</title>
+    
 </head>
 
 <body>
@@ -35,12 +37,50 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
             </div>
         </div>
     </nav>
+    <main>
+        <section class="gallery-links">
+            <div class="wrapper">
+                <h2>Gallery</h2>
+                <div class="gallery-container">
+                    <?php             
+                    include_once 'dbh.inc.php';
+                    
+                    $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC";
+                    $stmt = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt, $sql)){
+                        echo "SQL statement failed!";
+                    }
+                    else{
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
 
-    <div class="container mt-4">
-        <h3>LIBRARY</h3>
-        <hr>
-    </div>
+                        while ($row = mysqli_fetch_assoc($result)){
 
+                            echo
+                            '<a href="#">
+                                <div style="background-image: url('.$row["imageFullNameGallery"].')"></div>
+                                <h3>'.$row["titleGallery"].'</h3>
+                                <p>'.$row["descGallery"].'</p>
+                            </a>';
+                        }
+                    }
+                    
+                    
+                    ?>
+                </div>
+                
+                <div class="gallery-upload">
+                    <form action="gallery-upload.inc.php" method="post" enctype="multipart/form-data">
+                        <input type="text" name="filename" placeholder="File name ...">
+                        <input type="text" name="filetitle" placeholder="Image name ...">
+                        <input type="text" name="filedesc" placeholder="Image description ...">
+                        <input type="file" name="file">
+                        <button type="submit" name= "submit">UPLOAD</button>
+                        </form>
+                </div>
+            </div>
+        </section>
+    </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
