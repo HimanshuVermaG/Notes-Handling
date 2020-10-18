@@ -12,8 +12,8 @@ body{
     color: #fff;
 }
 .gallery-links{
-    background-image:url('image/backgound.jpg');
-    border: 2px solid #ffffff;
+    background-image:black;
+    border: 2px solid #1216eb;
     
 }
 .gallery-container{
@@ -29,8 +29,6 @@ body{
 }
 .gallery-container a div{
     border: 4px solid yellow;
-    width: 100px;
-    height: 100px;
     padding: 4px;
     margin:25px;
 
@@ -38,4 +36,17 @@ body{
 .cells:first-child{
     grid-column: 1/span 2;
     grid-row: 1/span 
+}
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: RoyalBlue;
 }

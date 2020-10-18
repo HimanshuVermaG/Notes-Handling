@@ -15,7 +15,8 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/nh_project/welcome.css">
+    <link rel="stylesheet" href="CSS/welcome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>NOTES-Handling</title>
     
@@ -43,7 +44,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
                 <h2>Gallery</h2>
                 <div class="gallery-container">
                     <?php             
-                    include_once 'dbh.inc.php';
+                    include_once 'includes/gallerydbh.inc.php';
                     
                     $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC";
                     $stmt = mysqli_stmt_init($conn);
@@ -57,20 +58,23 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
                         while ($row = mysqli_fetch_assoc($result)){
 
                             echo
-                            '<a href="#">
-                                <div style="background-image: url('.$row["imageFullNameGallery"].')"></div>
+                            '<p><a href="#">
+                            <div><img src="img/gallery/'.$row["imgFullNameGallery"].'" width="150px" height="150px"></div>
                                 <h3>'.$row["titleGallery"].'</h3>
                                 <p>'.$row["descGallery"].'</p>
-                            </a>';
+                            </a></p>
+                            <a href="phpdownload.php?file=' . urlencode($row["imgFullNameGallery"]) . '"><button class="btn"><i class="download"></i> Download</button></a>
+                            ';
                         }
                     }
                     
                     
                     ?>
+                    
                 </div>
                 
                 <div class="gallery-upload">
-                    <form action="gallery-upload.inc.php" method="post" enctype="multipart/form-data">
+                    <form action="include/gallery-upload.inc.php" method="post" enctype="multipart/form-data">
                         <input type="text" name="filename" placeholder="File name ...">
                         <input type="text" name="filetitle" placeholder="Image name ...">
                         <input type="text" name="filedesc" placeholder="Image description ...">
