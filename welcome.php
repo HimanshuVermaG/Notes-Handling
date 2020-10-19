@@ -36,10 +36,8 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <h3>LIBRARY</h3>
-        <hr>
-    </div>
+    
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
