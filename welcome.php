@@ -15,26 +15,57 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="welcome.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
     <title>NOTES-Handling</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">NOTES-Handling</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">About</a>
-                <a class="nav-item nav-link" href="#">Contact Us</a>
-                <a class="nav-item nav-link" href="#"><?php echo "Welcome " . $_SESSION['username'] ?></a>
-                <a class="nav-item nav-link" href="logout.php">Logout</a>
-            </div>
-        </div>
-    </nav>
+
+    <div class="wrapper">
+    <div class="sidebar">
+        <h2>Notes Handling</h2>
+        <ul>
+            <li><a href="welcome.php"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-upload"></i>Upload File</a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul> 
+        <div class="social_media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="main_content">
+        <div class="header"><h3>Gallery</h3></div>  
+        <div class="info">
+            <div class="sub_header"><h4>B.Tech > CSE > 1st Year</h4></div>
+                <div class="sub_blocks">
+                    <a href="#">Physics</a>
+                    <a href="#">Basic-Electrical-Engineering </a>
+                    <a href="#">Math II</a>
+                    <a href="#">Engineering Graphics & Design</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Professional English</a>
+                    <a href="#">Workshop</a>
+                </div>
+            <div class="sub_header"><h4>B.Tech > CSE > 2nd Year</h4></div>
+            <div class="sub_blocks">
+                    <a href="#">Discrete Structures & Theory of Logic</a>
+                    <a href="#">Computer Organization & Architecture</a>
+                    <a href="#">Math IV</a>
+                    <a href="#">Engineering Graphics & Design</a>
+                    <a href="#">Data Structure</a>
+                    <a href="#">Technical Communication</a>
+                    <a href="#">Energy Science & Engineering </a>
+                </div>
+      </div>
+    </div>
+</div>
 
     
 
