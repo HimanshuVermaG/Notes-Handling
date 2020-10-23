@@ -31,7 +31,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
             <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
             <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
             <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
-            <li><a href="upload.php"><i class="fas fa-upload"></i>Upload File</a></li>
+            <li><a href="#"><i class="fas fa-upload"></i>Upload File</a></li>
             <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul> 
         <div class="social_media">
@@ -41,29 +41,45 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
       </div>
     </div>
     <div class="main_content">
-        <div class="header"><h3>Home</h3></div>  
-        <div class="info">
-            <div class="sub_header"><h4>B.Tech > CSE > 1st Year</h4></div>
-                <div class="sub_blocks">
-                    <a href="#">Physics</a>
-                    <a href="#">Basic-Electrical-Engineering </a>
-                    <a href="#">Math II</a>
-                    <a href="#">Engineering Graphics & Design</a>
-                    <a href="#">Chemistry</a>
-                    <a href="#">Professional English</a>
-                    <a href="#">Workshop</a>
+    <div class="header"><h3>Upload File</h3></div>  
+            <div class="sub_header">
+                <form action="include/gallery-upload.inc.php" method="post" enctype="multipart/form-data">
+                    <input type="text" name="filename" placeholder="File name ...">
+                    <input type="text" name="filetitle" placeholder="Image name ...">
+                    <input type="text" name="filedesc" placeholder="Image description ...">
+                    <input type="file" name="file">
+                    <button type="submit" name= "submit">UPLOAD</button>
+                </form>
+            </div>
+            <div class="file_prv">
+                <?php             
+                        include_once 'includes/gallerydbh.inc.php';
+                        
+                        $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC";
+                        $stmt = mysqli_stmt_init($conn);
+                        if (!mysqli_stmt_prepare($stmt, $sql)){
+                            echo "SQL statement failed!";
+                        }
+                        else{
+                            mysqli_stmt_execute($stmt);
+                            $result = mysqli_stmt_get_result($stmt);
+
+                            while ($row = mysqli_fetch_assoc($result)){
+
+                                echo
+                                '<div><img src="img/gallery/'.$row["imgFullNameGallery"].'" width="150px" height="150px">
+                                    <h3>'.$row["titleGallery"].'</h3>
+                                    <p>'.$row["descGallery"].'</p>
+                                </div>';
+                            }
+                        }
+                        
+                        
+                        ?>
+                    </div>
+                    
                 </div>
-            <div class="sub_header"><h4>B.Tech > CSE > 2nd Year</h4></div>
-            <div class="sub_blocks">
-                    <a href="#">Discrete Structures & Theory of Logic</a>
-                    <a href="#">Computer Organization & Architecture</a>
-                    <a href="#">Math IV</a>
-                    <a href="#">Engineering Graphics & Design</a>
-                    <a href="#">Data Structure</a>
-                    <a href="#">Technical Communication</a>
-                    <a href="#">Energy Science & Engineering </a>
-                </div>
-      </div>
+                
     </div>
 </div>
 

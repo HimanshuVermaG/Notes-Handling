@@ -114,6 +114,17 @@ body{
   color: #4e7cdf;
   border-radius: 5px;
 }
+.wrapper .main_content .file_prv{
+  border:solid black;
+  display: table-cell;
+  width: 350px;
+  background: #e0e4e8;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 30px 30px 50px;
+  color: #4e7cdf;
+  border-radius: 5px;
+}
 .wrapper .main_content .info{
   margin: 20px;
   color: #717171;
