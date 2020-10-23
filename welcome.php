@@ -55,13 +55,13 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
                 </div>
             <div class="sub_header"><h4>B.Tech > CSE > 2nd Year</h4></div>
             <div class="sub_blocks">
-                    <a href="#">Discrete Structures & Theory of Logic</a>
-                    <a href="#">Computer Organization & Architecture</a>
-                    <a href="#">Math IV</a>
-                    <a href="#">Engineering Graphics & Design</a>
-                    <a href="#">Data Structure</a>
-                    <a href="#">Technical Communication</a>
-                    <a href="#">Energy Science & Engineering </a>
+                    <a href="notes_code/B.Tech_2nd_yr/DSTL.php">Discrete Structures & Theory of Logic</a>
+                    <a href="notes_code/B.Tech_2nd_yr/COA.php">Computer Organization & Architecture</a>
+                    <a href="notes_code/B.Tech_2nd_yr/MATH_IV.php">Math IV</a>
+                    <a href="notes_code/B.Tech_2nd_yr/EE.php">Electronics Engineering</a>
+                    <a href="notes_code/B.Tech_2nd_yr/DS.php">Data Structure</a>
+                    <a href="notes_code/B.Tech_2nd_yr/TC.php">Technical Communication</a>
+                    <a href="notes_code/B.Tech_2nd_yr/ESE.php">Energy Science & Engineering </a>
                 </div>
       </div>
     </div>
