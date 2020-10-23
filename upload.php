@@ -43,7 +43,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
     <div class="main_content">
     <div class="header"><h3>Upload File</h3></div>  
             <div class="sub_header">
-                <form action="include/gallery-upload.inc.php" method="post" enctype="multipart/form-data">
+                <form action="includes/gallery-upload.inc.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="filename" placeholder="File name ...">
                     <input type="text" name="filetitle" placeholder="Image name ...">
                     <input type="text" name="filedesc" placeholder="Image description ...">
@@ -66,11 +66,14 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
 
                             while ($row = mysqli_fetch_assoc($result)){
 
-                                echo
-                                '<div><img src="img/gallery/'.$row["imgFullNameGallery"].'" width="150px" height="150px">
-                                    <h3>'.$row["titleGallery"].'</h3>
-                                    <p>'.$row["descGallery"].'</p>
-                                </div>';
+                                echo '<a href="#">
+                
+                                <div><img src="img/gallery/'.$row["imgFullNameGallery"].'" width="150px" height="150px"></div>
+                              
+                                  <h3> '.$row['titleGallery'].'</h3>
+                                  <p>'.$row['descGallery'].'</p>
+                                  </a>';
+
                             }
                         }
                         

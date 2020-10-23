@@ -33,7 +33,7 @@ if(in_array($fileActualExt,$allowed)){
            include_once "gallerydbh.inc.php";
 
            if(empty($imageTitle)||empty($imageDesc)){
-               header("Location:../gallery.php?upload=empty");
+               header("Location:../upload.php?upload=empty");
                exit();
            }else{
               $sql="SELECT * FROM gallery;";
@@ -58,7 +58,7 @@ if(in_array($fileActualExt,$allowed)){
 
                       move_uploaded_file($fileTempName,$fileDestination);
                       
-                      header("Location:../gallery.php?uploadd=success");
+                      header("Location:../upload.php?uploadd=success");
                   }
               }
            }
