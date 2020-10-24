@@ -68,7 +68,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
 
                                 echo '<a href="#">
                 
-                                <div><img src="img/gallery/'.$row["imgFullNameGallery"].'" width="150px" height="150px"></div>
+                                <div class = "img"><img src="img/gallery/'.$row["imgFullNameGallery"].'" width="150px" height="150px" margin= 5px></div>
                               
                                   <h3> '.$row['titleGallery'].'</h3>
                                   <p>'.$row['descGallery'].'</p>
