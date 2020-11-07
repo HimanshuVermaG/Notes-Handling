@@ -9,11 +9,10 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/nh_project/CSS/welcome.css">
     <link rel="stylesheet" href="/nh_project/CSS/notes.css">
@@ -42,7 +41,7 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
       </div>
     </div>
     <div class="main_content">
-        <div class="header"><h3>Home</h3></div>  
+        <div class="header"><h3>Gallery</h3></div>  
         <div class="info">
             <div class="sub_header"><h4>B.Tech > CSE > 1st Year >DSTL</h4></div>
             <div class="sub_blocks">

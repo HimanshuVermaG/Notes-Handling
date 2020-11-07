@@ -93,6 +93,7 @@ body{
   padding: 10px;
   background: #fff;
   color: #717171;
+  text-align: center;
   border-bottom: 1px solid #e0e4e8;
 }
 .wrapper .sidebar .sub_blocks{
@@ -103,26 +104,28 @@ body{
   display: flex;
 }
 
+
 .wrapper .main_content .sub_blocks a{
   display: inline-block;
-  width: 350px;
   background: #e0e4e8;
   line-height: 45px;
   text-align: center;
   margin: 0 30px 30px 50px;
+  padding: 5px;
   color: #4e7cdf;
   border-radius: 5px;
 }
-.wrapper .main_content .file_prv a{
-    display: inline-block;
-    padding: 3px;
-    background: #e0e4e8;
-    line-height: 0px;
-    text-align: center;
-    margin: 15px;
-    color: #0e46bf;
-    border-radius: 5px;
+.wrapper .main_content .sub_img img{
+  display: inline-block;
+  width: 150px;
+  border: solid 2px black;
+  background: #e0e4e8;
+  text-align: center;
+  margin: 20px 110px 50px 200px;
+  color: #4e7cdf;
+  border-radius: 100px;
 }
+
 .wrapper .main_content .info{
   margin: 20px;
   color: #717171;
