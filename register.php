@@ -1,10 +1,38 @@
 <?php
 require_once "config.php";
 
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$coursename = $branchname = $year = $name = $username = $password = $confirm_password = "";
+$name_err = $username_err = $password_err = $confirm_password_err = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+     //check if name is empty
+
+     if(empty(trim($_POST['name']))){
+         $name_err = "name can not be blank";
+     }else {
+        $sql = "SELECT id FROM users WHERE name = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        if ($stmt) {
+            // Binde stmt
+            mysqli_stmt_bind_param($stmt, "s", $param_name);
+
+            // Set the value if param username
+            $param_name = trim($_POST['name']);
+
+            // Try to execute this statement
+          if (mysqli_stmt_execute($stmt)) {
+                mysqli_stmt_store_result($stmt);
+                    $name = trim($_POST['name']); 
+            } else {
+
+                echo "Something went wrong!!!";
+            }
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
     // CHECK if username is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "Username can not be blank";
@@ -25,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $username_err = "This username is already taken ";
                 } 
                 else {
-                    $username = trim($_POST['username']);
+                    $username = trim($_POST['username']); 
                 }
             } else {
 
@@ -35,6 +63,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     mysqli_stmt_close($stmt);
+
+    //check for college name 
+
+    if(empty(trim($_POST['collegename']))){
+        $collegename_err = "collegename can not be blank";
+    }else{
+        $collegename =trim($_POST['collegename']);
+    }
+
+    //check for course name
+
+    if(empty(trim($_POST['coursename']))){
+        $coursename_err = "coursename can not be blank";
+    }else{
+        $coursename =trim($_POST['coursename']);
+    }
+
+    //check for branch 
+
+    if(empty(trim($_POST['branchname']))){
+        $branchname_err = "branchname can not be blank";
+    }else{
+        $branchname =trim($_POST['branchname']);
+    }
+
+    //check for year
+
+    if(empty(trim($_POST['year']))){
+        $year_err = "year can not be blank";
+    }else{
+        $year =trim($_POST['year']);
+    }
+
+
 
     // Check for password
     if (empty(trim($_POST["password"]))) {
@@ -53,16 +115,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // If there is no errors; do ahead and insert into the database
 
-    if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
-        $sql = " INSERT INTO users (username, password) VALUES (?,?)";
+    if (empty($username_err) && empty($name_err) && empty($password_err) && empty($confirm_password_err)) {
+        $sql = " INSERT INTO users (name, username, password, collegename, coursename, branchname, year) VALUES (?,?,?,?,?,?,?)";
         $stmt = mysqli_prepare($conn, $sql);
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_name, $param_username, $param_password,$param_collegename,$param_coursename,$param_branchname,$param_year);
 
             // Set these parameters
+            $param_name = $name;
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT);
-
+            $param_collegename = $collegename;
+            $param_coursename = $coursename;
+            $param_branchname = $branchname;
+            $param_year = $year;
+           
             // Try to execute the query
             if (mysqli_stmt_execute($stmt)) {
                 header("location: login.php");
@@ -111,11 +178,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName4">Name</label>
-                    <input type="text" class="form-control" name ="Name" id="inputName4" placeholder="Name">
+                    <input type="text" class="form-control" name ="name" id="inputName4" placeholder="Name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Username</label>
-                    <input type="text" class="form-control" name ="username" id="inputEmail4" placeholder="Username">
+                    <input type="text" class="form-control" name ="username" id="inputEmail4" placeholder="E-mail">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
@@ -128,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
             <div class="form-group">
             <label for="inputCollege">College Name</label>
-                    <select id="inputCollege" class="form-control">
+                    <select id="inputCollege" class="form-control" name="collegename">
                         <option selected>College...</option>
                         <option>G.C.E.T</option>
                         <option>K.I.E.T</option>
@@ -138,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="form-row">
                 <div class="form-group col-md-6">
                 <label for="inputState">Course</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="coursename">
                         <option selected>Choose...</option>
                         <option>B.tech</option>
                         <option>B.S.C</option>
@@ -147,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState">Branch</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="branchname">
                         <option selected>Choose...</option>
                         <option>CSE</option>
                         <option>IT</option>
@@ -156,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </div>
                 <div class="form-group col-md-2">
                 <label for="inputState">Year</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="year">
                         <option selected>Choose...</option>
                         <option>1st Year</option>
                         <option>2nd Year</option>
@@ -165,14 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Remember me
-                    </label>
-                </div>
-            </div>
+          
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
