@@ -25,10 +25,11 @@ if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'] !== true)) {
             <h2>Notes Handling</h2>
             <ul>
                 <li><a href="welcome.php"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+                <li><a href="userprofile.php"><i class="fas fa-user"></i>Profile</a></li>
                 <li><a href="about.php"><i class="fas fa-address-card"></i>About</a></li>
-                <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+                <li><a href="contact_form.php"><i class="fas fa-address-book"></i>Contact</a></li>
                 <li><a href="upload.php"><i class="fas fa-upload"></i>Upload File</a></li>
+                <li><a href="index.php"><i class="fas fa-comment"></i>Comment</a></li>
                 <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
             <div class="social_media">

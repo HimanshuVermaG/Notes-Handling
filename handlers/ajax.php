@@ -1,6 +1,6 @@
 <?php
 
-include("../chatconfig.php");
+include("../includes/chatconfig.php");
 
 if( isset($_REQUEST['action']) ){
 

@@ -13,7 +13,4 @@
 
     $loggedin_session=$row['username'];
 
-	//$_SESSION['user'] = 'himanshu';
-
-
 ?>
