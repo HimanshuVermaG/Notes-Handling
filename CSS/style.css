@@ -10,8 +10,8 @@
 }
 
 .chathistory{
-	min-height:600px;
-	width:600px;
+	min-height:490px;
+	width:550px;
 	margin:10px auto;
 	padding:10px;
 	background:#f1f1f1;
@@ -24,6 +24,7 @@
 	width:600px;
 	margin:10px auto;
 	padding:10px;
+	border-radius: 10px;
 }
 
 .siglemessage{
